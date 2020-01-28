@@ -1,12 +1,17 @@
-#!/bin/bash
+#!/bin/sh
 
-if [ -z "$CONFIG_FILE" ]
-then
-  echo "No config file specified"
+if [ -z $PROJECT_PATH ]; then
+    echo "Environment PROJECT_PATH required"
+    exit 1
 else
-      CONFIG_FILE="-- $CONFIG_FILE"
+  cd "$PROJECT_PATH" || exit
 fi
 
-export CONFIG_FILE
+if [ -z $CONFIG_FILE ]; then
+    echo "Config file not specified"
+else
+    CONFIG_FILE="-- $CONFIG_FILE"
+    export CONFIG_FILE
+fi
 
 exec "$@"
