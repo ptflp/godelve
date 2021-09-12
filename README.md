@@ -5,7 +5,7 @@ This repository about golang remote debug based on [go-delve/delve](https://gith
 ## Getting started:
 
 Firstly configure your IDE to remote debugging Go application on port :5813
-than start your application
+then start your application
 ```shell script
 cd Go_Project_Folder
 docker run -v $(pwd):$(pwd) -e PROJECT_PATH=$(pwd) -p 5813:5813 ptflp/godelve
